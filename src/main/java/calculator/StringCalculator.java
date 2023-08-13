@@ -13,14 +13,12 @@ public class StringCalculator {
             return 0;
 
         int sum=0;
-        if(text.contains(",")) {
-            String[] nums = text.split(",");
-            for (String value : nums) {
+        String[] nums = text.split(",");
+        for (String value : nums) {
                 sum+=Integer.parseInt(value);
-            }
-            return sum;
         }
-        return Integer.parseInt(text);
+
+        return sum;
     }
 
 }
