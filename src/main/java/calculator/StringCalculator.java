@@ -35,9 +35,17 @@ public class StringCalculator {
         int[] numbers = new int[nums.length];
 
         for(int i=0; i<nums.length; i++) {
-            numbers[i] = Integer.parseInt(nums[i]);
+            numbers[i] = noNativeNum(nums[i]);
         }
         return numbers;
+    }
+
+    private static int noNativeNum(String nums) {
+        int number = Integer.parseInt(nums);
+        if(number<0) {
+            throw new RuntimeException();
+        }
+        return number;
     }
 
     private static int sum(int[] numbers) {

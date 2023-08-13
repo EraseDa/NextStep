@@ -46,4 +46,11 @@ class StringCalculatorTest {
     public void splitByCustom() {
         assertEquals(8, cal.add("//;\n1;2;5"));
     }
+
+    //Junit5 부터는 Test어노테이션 옆에 (expected = 입센션)을 사용하지 못하고 대신 아래처럼 assertThrows를 사용해야함
+    @Test
+    @DisplayName("음수인 경우 RuntimeException")
+    public void nativeException() throws Exception {
+    assertThrows(RuntimeException.class, ()-> { cal.add("-1,2,5");});
+    }
 }
