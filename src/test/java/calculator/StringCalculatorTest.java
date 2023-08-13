@@ -34,4 +34,16 @@ class StringCalculatorTest {
         assertEquals(0, cal.add("0,0"));
     }
 
+    @Test
+    @DisplayName("구분자가 ,와 :가 섞인 경우")
+    public void splitByCommaAndColon() {
+        assertEquals(7, cal.add("4,1:2"));
+        assertEquals(0, cal.add("0,0:0"));
+    }
+
+    @Test
+    @DisplayName("커스텀 구분자인 경우")
+    public void splitByCustom() {
+        assertEquals(8, cal.add("//;\n1;2;5"));
+    }
 }
