@@ -27,4 +27,11 @@ class StringCalculatorTest {
         assertEquals(0, cal.add("0"));
     }
 
+    @Test
+    @DisplayName("구분자가 ,인 경우")
+    public void splitByComma() {
+        assertEquals(5, cal.add("4,1"));
+        assertEquals(0, cal.add("0,0"));
+    }
+
 }
