@@ -9,15 +9,34 @@ public class StringCalculator {
     * 만약 0이거나 빈 문자열일 경우엔 0으로 출력된다.
     * 문자열에 음수가 들어갈 경우엔 RuntimeException으로 예외처리를 해야한다.*/
     public int add(String text) {
-        if(text == null || text.isBlank())
+        if(checkBlank(text))
             return 0;
+        return sum(toInts(split(text)));
+    }
 
-        int sum=0;
+    private static boolean checkBlank(String text) {
+        return text == null || text.isBlank();
+    }
+
+    private static String[] split(String text) {
         String[] nums = text.split(",");
-        for (String value : nums) {
-                sum+=Integer.parseInt(value);
-        }
+        return nums;
+    }
 
+    private static int[] toInts(String[] nums) {
+        int[] numbers = new int[nums.length];
+
+        for(int i=0; i<nums.length; i++) {
+            numbers[i] = Integer.parseInt(nums[i]);
+        }
+        return numbers;
+    }
+
+    private static int sum(int[] numbers) {
+        int sum=0;
+        for (int value : numbers) {
+                sum+=value;
+        }
         return sum;
     }
 
